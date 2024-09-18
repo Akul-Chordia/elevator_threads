@@ -18,6 +18,7 @@ std::vector<int> downRequests;
 std::mutex mutex;
 std::condition_variable messenger;
 
+//securing user input
 std::string safecin(const std::string& prompt = "") {
     std::string input;
     while (true) {
@@ -157,6 +158,11 @@ void handleInput() {
 }
 
 int main() {
+    
+    std::cout <<"\n~~~~~~~~~~~~~~~~ Elevator ~~~~~~~~~~~~~~~~\n";
+    std::cout <<"~~~ Enter the floor number + direction ~~~\n";
+    std::cout <<"~ int + \'u\'/\'d\' (up or down) eg:7u or 5D ~\n";
+    std::cout <<"~~~~~~~~~~~~~~~ -1 to exit ~~~~~~~~~~~~~~~\n";
 
     std::thread elevatorThread(elevatorSimulation);
 
